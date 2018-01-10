@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My Gallery</title>
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'gallery/style.css' %}"/>
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <!-- Font-family links -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+
+<body>
+  <div id="box">
+    <header id="header">
+      <div id="branding">
+		      <h1 id="site-title">CRM / Amateur artist</h1>
+          <div id="site-description">Every artist was first an amateur</div>
+          <img class="center" src="/static/gallery/images/header.png" alt="">
+		  </div>
+    </header>   <!-- End of header-->
+
+    <div id="main">
+      <div id="column1" class="col">
+        <h3>Welcome to my web-gallery</h3><br>
+        <img class="center portrait" src="/static/gallery/images/photo.png" alt="Photo" height="160" width="160"/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate blandit arcu quis aliquam. Praesent eget quam sapien. In hac habitasse platea dictumst. Integer tempor vel massa vitae tincidunt. Suspendisse varius urna nulla, eu congue sapien malesuada vel. Sed suscipit, magna sit amet congue varius, tortor lorem efficitur neque, in maximus felis quam sit amet elit. Aliquam non ullamcorper elit. <br><br>Suspendisse placerat ut lorem ut facilisis. Phasellus non odio tincidunt mi ornare imperdiet. Aenean maximus risus vitae gravida pretium. Nunc vel magna turpis. Nullam eu erat sit amet purus faucibus tristique id ultrices massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi imperdiet, nulla ac vulputate pharetra, magna lacus hendrerit arcu, eu aliquam lorem nulla non turpis. Quisque sit amet fringilla dolor. Phasellus mauris dui, iaculis et erat eget, posuere malesuada lectus. Aliquam condimentum iaculis ante a tristique. Duis ultrices ornare imperdiet. Sed porta nec justo varius faucibus.
+        </p>
+        <h3>Contact</h3>
+        <p>Please do not hesitate to contact me if you require further information</p>
+        <p>Send e-mail to: <a href="mailto:codding@example.com">The Artist</a></p>
+      </div>   <!-- End of column1-->
+
+      <div id="column2">
+        <h2 class="gallery-title">Gallery</h2>
+
+        {% if painting_list %}
+        <ul class="list">
+          {% for painting in painting_list %}
+          <li>
+            <a href="/gallery/{{ painting.id}}/" title="{{painting.painting_title}}"><img src="/media/documents/Drawing{{ painting.id }}.png/" alt="Image"></a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No paintings are available.</p>
+        {% endif %}
+      </div>   <!-- End of column2-->
+    </div>   <!-- End of main-->
+
+    <div id="footer">
+      <div>
+        <h4>Coded by CRM</h5>
+        <h5>Python 2.7.13<br>Django 1.10.7</h4>
+      </div>
+    </div>   <!-- End of footer-->
+
+  </div>  <!-- End of box-->
+
+
+</body>
+</html>

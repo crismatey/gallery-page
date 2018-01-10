@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My Gallery</title>
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'gallery/detail.css' %}"/>
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <!-- Font-family links -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="left-side">
+    <h1>{{ painting.painting_title }}</h1>
+    <h3>{{painting.painting_year}}</h3>
+    <h3>{{painting.painting_style}}</h3>
+    <h3>{{painting.painting_text}}</h3>
+  </div>
+
+  <div class="right-side">
+    <img src="/media/documents/Drawing{{painting.id}}.png/" alt="Image">
+  </div>
+
+</body>
